@@ -46,6 +46,7 @@ public class ContentStore extends Store {
   }
 
   public Content getContent() {
+    System.out.println("test");
     return content;
   }
 }
