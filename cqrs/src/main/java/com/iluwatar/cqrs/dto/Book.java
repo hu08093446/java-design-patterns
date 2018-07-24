@@ -80,5 +80,4 @@ public class Book {
     Book book = (Book) obj;
     return title.equals(book.getTitle()) && price == book.getPrice();
   }
-
 }

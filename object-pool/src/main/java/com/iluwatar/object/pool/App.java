@@ -38,7 +38,7 @@ import org.slf4j.LoggerFactory;
  * new item is created and returned. When the object has been used and is no longer needed, it is
  * returned to the pool, allowing it to be used again in the future without repeating the
  * computationally expensive instantiation process. It is important to note that once an object has
- * been used and returned, existing references will become invalid.
+ * been used and returned, existing references will become invalid（这句话啥意思，啥叫引用失效，没失效呀，没懂！！！！！！）.
  * <p>
  * In this example we have created {@link OliphauntPool} inheriting from generic {@link ObjectPool}.
  * {@link Oliphaunt}s can be checked out from the pool and later returned to it. The pool tracks
@@ -69,6 +69,7 @@ public class App {
     pool.checkIn(oliphaunt1);
     LOGGER.info("Checking in {}", oliphaunt2);
     pool.checkIn(oliphaunt2);
+    LOGGER.info("Checking in {}", oliphaunt2);
     LOGGER.info(pool.toString());
     Oliphaunt oliphaunt4 = pool.checkOut();
     LOGGER.info("Checked out {}", oliphaunt4);

@@ -31,10 +31,20 @@ public class UserConverter extends Converter<UserDto, User> {
   /**
    * Constructor.
    */
+//  public UserConverter() {
+//    super(userDto -> new User(userDto.getFirstName(), userDto.getLastName(), userDto.isActive(),
+//        userDto.getEmail()),
+//        user -> new UserDto(user.getFirstName(), user.getLastName(), user.isActive(),
+//        user.getUserId()));
+//  }
   public UserConverter() {
-    super(userDto -> new User(userDto.getFirstName(), userDto.getLastName(), userDto.isActive(),
-        userDto.getEmail()),
-        user -> new UserDto(user.getFirstName(), user.getLastName(), user.isActive(),
-        user.getUserId()));
+      super(userDto -> transToUser(userDto),
+              user -> new UserDto(user.getFirstName(), user.getLastName(), user.isActive(),
+                      user.getUserId()));
+  }
+
+  private static User transToUser(UserDto userDto) {
+      return new User(userDto.getFirstName(), userDto.getLastName(), userDto.isActive(),
+              userDto.getEmail());
   }
 }
